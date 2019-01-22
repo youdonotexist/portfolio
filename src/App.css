@@ -1,0 +1,264 @@
+@font-face {
+    font-family: Inconsolata, monospace;
+    src: url("./assets/Inconsolata.otf") format("opentype");
+}
+
+body, html {
+    height: 100%;
+    background-color: #222;
+}
+
+.App {
+    text-align: center;
+    background-color: #222;
+    height: 100%;
+    min-height: 100%;
+    font-family: Inconsolata, monospace;
+}
+
+@media screen and (min-width: 450px) {
+    .App-header {
+        margin: 0 auto;
+        margin-left: 150px;
+        padding-top: 100px;
+        color: white;
+        max-width: 600px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .App-header {
+        margin: 0 auto;
+        margin-left: 80px;
+        padding-top: 100px;
+        color: white;
+        max-width: 600px;
+        height: 50px;
+    }
+}
+
+.App-title {
+    font-family: Inconsolata, monospace;
+    text-align: left;
+    font-size: 15px;
+}
+
+.App-subtitle {
+    font-family: Inconsolata, monospace;
+    text-align: left;
+    font-size: 15px;
+    color: rgb(166, 166, 166);
+    height: 30px;
+}
+
+.Header-Main {
+    margin-left: 70px;
+    margin-top: auto;
+    margin-bottom: auto;
+    display:table-cell;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.Header-section {
+    font-family: Inconsolata, monospace;
+    /*text-decoration: underline;*/
+    font-size: 15px;
+    padding-bottom: 5px;
+
+    color: white;
+
+    text-decoration-skip: edges;
+    text-align: center;
+    height: 100%;
+}
+
+.Header-section-selected {
+    font-family: Inconsolata, monospace;
+    /*text-decoration: underline;*/
+    font-size: 30px;
+    border: solid white;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: rgb(166, 166, 166);
+
+    text-decoration-skip: edges;
+    text-align: center;
+}
+
+.Header-sections {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.Header-section {
+    display:block;
+    width: 100%;
+    text-align: right;
+}
+
+.Header-logos-container {
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.Header-logos {
+    width: 25px;
+    margin-right: 4px;
+    color: white;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 450px) {
+    .Navigation-Container {
+        display: inline;
+        float:left;
+        width: 125px;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .Navigation-Container {
+        display: inline;
+        float:left;
+        width: 50px;
+        height: 300px;
+    }
+}
+
+
+
+
+.App-intro {
+    font-size: large;
+}
+
+
+@media screen and (min-width: 450px) {
+    .Section {
+        height: 100vh;
+        color: white;
+        margin: 0 auto;
+        margin-left:150px;
+        padding-right:15px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .Section {
+        height: 100vh;
+        color: white;
+        margin: 0 auto;
+        margin-left:80px;
+        padding-right:15px;
+    }
+}
+
+
+
+.About-img {
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.About-txt {
+    text-align: left;
+}
+
+.GamesHeader {
+    max-width: 600px;
+    margin-left: -10px;
+}
+
+.Grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-self: center;
+    justify-content: center;
+    max-width: 600px;
+    margin-left: -10px;
+    padding-bottom: 15px;
+}
+
+.Grid-Item {
+    background-color: #ccc;
+    color: #000;
+    width: 180px;
+    height: 250px;
+    align-self: center;
+    justify-self: center;
+    margin: 10px;
+    margin-top:5px;
+}
+
+.Grid-Item > img {
+    margin-top:5px;
+    width: 180px;
+    min-height: 180px;
+}
+
+.Grid-Item > div {
+    position: absolute;
+    width: 180px;
+    background-color: #cccccc;
+    font-family: Inconsolata, monospace;
+}
+
+.Game {
+
+}
+
+.Game-Description {
+    text-align: left;
+    white-space: pre-line;
+}
+
+.Game-Icon {
+    width: 50px;
+    height: 50px;
+}
+
+.modal {
+    position: relative;
+    background: rgba(177, 177, 177, 0.87);
+    top: 25px;
+    left: 25%;
+    width: 50%;
+    padding: 15px;
+    border: 2px solid #444;
+}
+
+.modal-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.Game-Modal {
+
+}
+
+.Game {
+    width: 50%;
+    color:white;
+    margin: auto;
+}
+
+.Game > * {
+    width: 100%;
+    margin: auto;
+}
+
+.Game-Carousel {
+    width: 100%;
+    margin: auto;
+}
