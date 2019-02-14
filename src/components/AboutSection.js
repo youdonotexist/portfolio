@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Me from "../assets/me.JPG"
 import AboutViewModel from "../viewmodel/AboutViewModel";
 
 class AboutSection extends Component {

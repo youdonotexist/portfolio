@@ -18,10 +18,10 @@ class ProjectGridItem extends Component {
 				<div> {this.props.title}</div>
 				<div >
 					<a style={{display: 'inline-block', padding: '5px'}} target='_blank' href={this.props.readme}>
-						<img className="Game-Icon" src={TxtIcon}/>
+						<img className="Game-Icon" src={TxtIcon} alt="Description"/>
 					</a>
 					<a style={{display: 'inline-block', padding: '5px'}} target='_blank' href={this.props.source}>
-						<img className="Game-Icon" src={GithubIcon}/>
+						<img className="Game-Icon" src={GithubIcon} alt="Source"/>
 					</a>
 				</div>
 				<img alt={this.props.title} src={this.props.image}/>

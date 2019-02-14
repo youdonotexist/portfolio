@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
-import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
+import {BrowserRouter as Route, Switch} from "react-router-dom";
 import GamesSection from "./GamesSection";
 import AboutSection from "./AboutSection";
 import WorkSection from "./WorkSection";

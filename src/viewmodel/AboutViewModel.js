@@ -1,4 +1,3 @@
-import React, {Component} from 'react';
 import ItchIcon from "../assets/itchio.png";
 import TwitterIcon from "../assets/twitter.png";
 import GithubIcon from "../assets/github.png";

@@ -39,11 +39,11 @@ class Game extends Component {
 				{this.showCarousel(this.state.game.images)}
 				<div >
 					<a style={{display: 'inline-block', padding: '5px'}} target='_blank' href={this.state.game.readme}>
-						<img className="Game-Icon" src={TxtIcon}/>
+						<img className="Game-Icon" src={TxtIcon} alt="Readme"/>
 						<div style={{display: 'block'}}>Readme</div>
 					</a>
 					<a style={{display: 'inline-block', padding: '5px'}} target='_blank' href={this.state.game.readme}>
-						<img className="Game-Icon" src={GithubIcon}/>
+						<img className="Game-Icon" src={GithubIcon} alt="Source"/>
 						<div style={{display: 'block'}}>Source</div>
 					</a>
 				</div>
@@ -58,7 +58,7 @@ class Game extends Component {
 			return <Carousel className='Game-Carousel' ref={"carousel"} heightMode='max'>
 				{this.state.game.images.map(function (image, index) {
 					return <img style={{height: 'auto', width: '100%'}} key={index} src={image}
-					            onLoad={self.handleLoadImage}/>
+					            onLoad={self.handleLoadImage} alt="game image"/>
 				})}
 			</Carousel>
 		}
