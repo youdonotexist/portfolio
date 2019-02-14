@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 class Header extends Component {
 
 	render() {
-		var self = this;
 
 		return (
 			<div className="App-header">

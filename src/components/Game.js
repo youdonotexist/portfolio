@@ -58,7 +58,7 @@ class Game extends Component {
 			return <Carousel className='Game-Carousel' ref={"carousel"} heightMode='max'>
 				{this.state.game.images.map(function (image, index) {
 					return <img style={{height: 'auto', width: '100%'}} key={index} src={image}
-					            onLoad={self.handleLoadImage} alt="game image"/>
+					            onLoad={self.handleLoadImage} alt="game shot"/>
 				})}
 			</Carousel>
 		}

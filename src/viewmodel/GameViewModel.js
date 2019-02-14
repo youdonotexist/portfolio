@@ -1,4 +1,3 @@
-import React, {Component} from 'react';
 import * as Rx from "rxjs";
 import NoManImage1 from "../assets/games/noman/noman1.jpg";
 import NoManImage2 from "../assets/games/noman/noman2.jpg";
