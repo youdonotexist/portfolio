@@ -7,11 +7,16 @@ pages:
     - npm run build
     - rm -rf public
     - mv build public
-    - git status
-    - cd public
-    - git status
   artifacts:
     paths:
       - public # mandatory, other folder won't work
   only:
     - master # or dev, the branch you want to publish
+
+
+github-push:
+  stage: deploy
+  script:
+    - ls
+  dependencies:
+    - pages
