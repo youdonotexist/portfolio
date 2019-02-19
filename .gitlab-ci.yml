@@ -1,7 +1,7 @@
 image: node:10.8.0 # can be upgraded, depending on your node version used
 
 pages:
-  stage: deploy
+  stage: build
   script:
     - npm install
     - npm run build
@@ -15,7 +15,7 @@ pages:
 
 
 github-push:
-  stage: push
+  stage: deploy
   script:
     - ls
   dependencies:
