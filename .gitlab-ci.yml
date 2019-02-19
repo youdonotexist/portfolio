@@ -19,4 +19,4 @@ github-push:
   script:
     - ls
   dependencies:
-    - pages
+    - :pages
