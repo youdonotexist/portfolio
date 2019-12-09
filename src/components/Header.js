@@ -8,8 +8,8 @@ class Header extends Component {
 		return (
 			<div className="App-header">
 					<div className="Header-Main">
-						<div className="App-title"> Cam Daly</div>
-						<div className="App-subtitle"> A study in doing random things</div>
+						<div className="App-title"> Camren Daly</div>
+						<div className="App-subtitle"> A study in doing various things</div>
 					</div>
 			</div>
 		);

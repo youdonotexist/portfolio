@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
-import {BrowserRouter as Route, Switch} from "react-router-dom";
-import GamesSection from "./GamesSection";
-import AboutSection from "./AboutSection";
-import WorkSection from "./WorkSection";
-import GameModal from "./GameModal";
-import Game from "./Game";
+import {Route, Switch} from "react-router-dom";
+import GamesSection from "./sections/GamesSection";
+import AboutSection from "./sections/AboutSection";
+import WorkSection from "./sections/WorkSection";
+import GameModal from "./games/GameModal";
+import Game from "./games/Game";
 import NavigationComponent from "./NavigationComponent";
 
 class SectionController extends Component {
