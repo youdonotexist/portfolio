@@ -26,7 +26,11 @@ class WorkSection extends Component {
 		return (
 			<div className="Grid">
 				{this.state.jobs.map(function (item, index) {
-					return <div key={index}> {item.name} </div>
+					return(
+					<span>
+						<img src={item.image}/>
+					</span>
+					)
 				})}
 			</div>
 		);

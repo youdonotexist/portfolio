@@ -16,17 +16,19 @@ class ProjectGridItem extends Component {
 		return (
 			<Link className="Grid-Item" to={{pathname: '/game/' + this.props.id, state: {modal: true}}}>
 				<div> {this.props.title} </div>
-				<div >
-					<a style={{display: 'inline-block', padding: '5px'}} target='_blank' href={this.props.readme}>
-						<img className="Game-Icon" src={TxtIcon} alt="Description"/>
-					</a>
-					<a style={{display: 'inline-block', padding: '5px'}} target='_blank' href={this.props.source}>
-						<img className="Game-Icon" src={GithubIcon} alt="Source"/>
-					</a>
-				</div>
+
 
 			</Link>
 		)
+
+		/*<div >
+					<a style={{display: 'inline-block'}} target='_blank' href={this.props.readme}>
+						<img className="Game-Icon" src={TxtIcon} alt="Description"/>
+					</a>
+					<a style={{display: 'inline-block'}} target='_blank' href={this.props.source}>
+						<img className="Game-Icon" src={GithubIcon} alt="Source"/>
+					</a>
+				</div>*/
 	}
 }
 

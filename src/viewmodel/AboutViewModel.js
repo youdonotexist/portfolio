@@ -14,7 +14,7 @@ class AboutViewModel {
 			{icon: GithubIcon, url: "https://github.com/youdonotexist"},
 			{icon: LinkedInIcon, url: "https://www.linkedin.com/in/dalydev/"},
 			{icon: BlogspotIcon, url: "https://basicallycam.blogspot.com/"},
-			{icon: EmailIcon, url: "mailto:youdonotexist@gmail.com"}
+			{icon: EmailIcon, url: "mailto:me@basically.cam"}
 		];
 	}
 

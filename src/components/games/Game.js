@@ -37,12 +37,12 @@ class Game extends Component {
 			<div className={this.props.isModal ? "Game-Modal" : "Game"}>
 				<h1>{this.state.game.title}</h1>
 				{this.showCarousel(this.state.game.images)}
-				<div >
-					<a style={{display: 'inline-block', padding: '5px'}} target='_blank' href={this.state.game.readme}>
+				<div class="Game-Links">
+					<a style={{display: 'inline-block'}} target='_blank' href={this.state.game.readme}>
 						<img className="Game-Icon" src={TxtIcon} alt="Readme"/>
 						<div style={{display: 'block'}}>Readme</div>
 					</a>
-					<a style={{display: 'inline-block', padding: '5px'}} target='_blank' href={this.state.game.readme}>
+					<a style={{display: 'inline-block'}} target='_blank' href={this.state.game.source}>
 						<img className="Game-Icon" src={GithubIcon} alt="Source"/>
 						<div style={{display: 'block'}}>Source</div>
 					</a>
@@ -61,8 +61,7 @@ class Game extends Component {
 					            onLoad={self.handleLoadImage} alt="game shot"/>
 				})}
 			</Carousel>
-		}
-		else {
+		} else {
 			return <div/>;
 		}
 	}
