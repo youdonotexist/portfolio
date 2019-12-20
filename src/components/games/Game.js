@@ -3,6 +3,7 @@ import Carousel from "nuka-carousel";
 import GameViewModel from "../../viewmodel/GameViewModel";
 import GithubIcon from "../../assets/github.png";
 import TxtIcon from "../../assets/txt.png";
+import isMobile from "react-device-detect";
 
 class Game extends Component {
 	constructor(props) {
@@ -35,9 +36,9 @@ class Game extends Component {
 
 		return (
 			<div className={this.props.isModal ? "Game-Modal" : "Game"}>
-				<h1>{this.state.game.title}</h1>
+				<h3>{this.state.game.title}</h3>
 				{this.showCarousel(this.state.game.images)}
-				<div class="Game-Links">
+				<div className="Game-Links">
 					<a style={{display: 'inline-block'}} target='_blank' href={this.state.game.readme}>
 						<img className="Game-Icon" src={TxtIcon} alt="Readme"/>
 						<div style={{display: 'block'}}>Readme</div>
@@ -55,7 +56,7 @@ class Game extends Component {
 		var self = this;
 
 		if (hasImages) {
-			return <Carousel className='Game-Carousel' ref={"carousel"} heightMode='max'>
+			return <Carousel className='Game-Carousel' ref={"carousel"} heightMode='max' withoutControls={isMobile}>
 				{this.state.game.images.map(function (image, index) {
 					return <img style={{height: 'auto', width: '100%'}} key={index} src={image}
 					            onLoad={self.handleLoadImage} alt="game shot"/>

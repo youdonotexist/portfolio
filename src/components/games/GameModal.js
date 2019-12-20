@@ -24,8 +24,15 @@ class GameModal extends Component {
 		return (
 			<div className="modal-bg">
 				<div className="modal">
+					<div>
+						<div className="modal-close-top" onClick={this.back}>
+						    <span style={{'display': 'inline-block', 'vertical-align': 'middle', 'line-height': 'normal'}}>
+							    <div>X</div>
+						    </span>
+						</div>
+					</div>
 					<Game id={id} isModal={true}/>
-					<button type="button" onClick={this.back}>Close</button>
+					<div className="modal-close-bottom" type="button" onClick={this.back}>Close</div>
 				</div>
 			</div>
 		)

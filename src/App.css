@@ -4,12 +4,11 @@
 }
 
 body, html {
-    height: 100%;
+    position:relative;
     background-color: #ffffff;
 }
 
 .App {
-    text-align: center;
     background-color: #ffffff;
     height: 100%;
     min-height: 100%;
@@ -227,12 +226,37 @@ body, html {
 
 .modal {
     position: relative;
-    background: rgba(177, 177, 177, 0.87);
+    background: rgba(177, 177, 177, 256);
     top: 25px;
     left: 25%;
     width: 50%;
     padding: 15px;
     border: 2px solid #444;
+}
+
+.modal-close-top {
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    width:25px;
+    height:25px;
+    line-height: 25px;
+    align-content: center;
+    float:right;
+    text-align: center;
+}
+
+.modal-close-bottom {
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    text-align: center;
+    width:100%;
+    margin-top: 10px;
+}
+
+.modal-close-bottom:active, .modal-close-top:active {
+    background: grey;
 }
 
 .modal-bg {
@@ -241,11 +265,12 @@ body, html {
     left: 0;
     bottom: 0;
     right: 0;
+    width:100%;
     background: rgba(0, 0, 0, 0.15);
 }
 
-.Game-Modal {
-
+.Game-Modal > * {
+    text-align: center;
 }
 
 .Game {
@@ -255,6 +280,7 @@ body, html {
 }
 
 .Game > * {
+    text-align: center;
     width: 100%;
     margin: auto;
 }
@@ -263,3 +289,15 @@ body, html {
     width: 100%;
     margin: auto;
 }
+
+.CompanyRow {
+    text-align: start;
+    display:inline;
+}
+
+.WorkImage {
+    filter: grayscale(50%);
+    width: 50px;
+    padding: 2px;
+}
+
