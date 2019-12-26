@@ -1,9 +1,10 @@
 @font-face {
-    font-family: Inconsolata, monospace;
-    src: url("./assets/Inconsolata.otf") format("opentype");
+    font-family: Geosans-Light;
+    src: url("./assets/Geosans-Light.woff") format("woff");
 }
 
 body, html {
+    font-family: Geosans-Light, serif;
     position:relative;
     background-color: #ffffff;
 }
@@ -12,7 +13,6 @@ body, html {
     background-color: #ffffff;
     height: 100%;
     min-height: 100%;
-    font-family: Inconsolata, monospace;
 }
 
 @media screen and (min-width: 450px) {
@@ -22,7 +22,6 @@ body, html {
         padding-top: 100px;
         color: #808080;
         max-width: 600px;
-        height: 50px;
     }
 }
 
@@ -33,23 +32,20 @@ body, html {
         padding-top: 100px;
         color: #808080;
         max-width: 600px;
-        height: 50px;
     }
 }
 
 .App-title {
-    font-family: Inconsolata, monospace;
     text-align: left;
-    font-size: 20px;
+    font-size: 30px;
     color:darkseagreen;
 }
 
 .App-subtitle {
-    font-family: Inconsolata, monospace;
     text-align: left;
-    font-size: 15px;
+    font-size: 20px;
     color: rgb(166, 166, 166);
-    height: 30px;
+    padding-bottom: 10px;
 }
 
 .Header-Main {
@@ -61,8 +57,6 @@ body, html {
 }
 
 .Header-section {
-    font-family: Inconsolata, monospace;
-    /*text-decoration: underline;*/
     font-size: 15px;
     padding-bottom: 5px;
 
@@ -74,8 +68,6 @@ body, html {
 }
 
 .Header-section-selected {
-    font-family: Inconsolata, monospace;
-    /*text-decoration: underline;*/
     font-size: 30px;
     border: solid #808080;
     border-width: 2px;
@@ -143,7 +135,7 @@ body, html {
         color: #808080;
         margin: 0 auto;
         padding-left: 150px;
-        padding-right: 15px;
+        padding-right: 150px;
         /*max-width: 450px;*/
     }
 }
@@ -155,7 +147,7 @@ body, html {
         margin: 0 auto;
         margin-left:50px;
         padding-left: 20px;
-        padding-right: 15px;
+        padding-right: 150px;
     }
 }
 
@@ -169,6 +161,7 @@ body, html {
 
 .About-txt {
     text-align: left;
+    font-weight: bold;
 }
 
 .GamesHeader {
@@ -242,8 +235,8 @@ body, html {
     height:25px;
     line-height: 25px;
     align-content: center;
-    float:right;
     text-align: center;
+    float:right;
 }
 
 .modal-close-bottom {
