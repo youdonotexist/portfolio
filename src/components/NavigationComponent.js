@@ -31,6 +31,7 @@ class NavigationComponent extends Component {
 
 					})}
 				</div>
+				<div style={{height: '100%', float: 'left', width: '1px', color: "black"}}/>
 			</div>
 		);
 	}

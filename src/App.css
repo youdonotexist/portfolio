@@ -122,6 +122,7 @@ body, html {
         float: left;
         width: 50px;
         height: 300px;
+        overflow: auto;
     }
 }
 
@@ -144,8 +145,7 @@ body, html {
         height: 100vh;
         color: #808080;
         margin: 0 auto;
-        margin-left:50px;
-        padding-left: 30px;
+        margin-left: 70px;
         padding-right: 30px;
     }
 }
@@ -161,15 +161,14 @@ body, html {
 .About-txt {
     text-align: left;
     font-weight: bold;
+    max-width: 245px;
 }
 
 .GamesHeader {
-    margin-left: -10px;
     font-size: 17px;
     text-align: left;
     color: #418641;
     font-weight: bolder;
-    padding:10px;
 }
 
 .Grid {
@@ -179,6 +178,7 @@ body, html {
     justify-content: left;
     max-width: 600px;
     padding-bottom: 15px;
+    padding-left: 5px;
 }
 
 .Grid-Item {
