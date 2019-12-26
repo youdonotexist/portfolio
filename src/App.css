@@ -136,7 +136,6 @@ body, html {
         margin: 0 auto;
         padding-left: 150px;
         padding-right: 150px;
-        /*max-width: 450px;*/
     }
 }
 
@@ -146,8 +145,8 @@ body, html {
         color: #808080;
         margin: 0 auto;
         margin-left:50px;
-        padding-left: 20px;
-        padding-right: 150px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 }
 

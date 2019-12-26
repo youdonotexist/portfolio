@@ -32,7 +32,7 @@ class AboutSection extends Component {
 
 				<br/><br/>
 
-				Such various things include technologies such as iOS, Android, Unity, Web.
+				Such various things include technologies such as iOS, Android, Unity, and now, Web.
 
 				<br/><br/>
 				</div>
