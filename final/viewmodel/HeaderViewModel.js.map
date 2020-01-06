@@ -1,0 +1,1 @@
+{"version":3,"file":"HeaderViewModel.js","sourceRoot":"","sources":["../../src/viewmodel/HeaderViewModel.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAC,EAAE,EAAC,MAAM,MAAM,CAAA;AAEvB;IAAA;QACY,aAAQ,GAAa,CAAC,OAAO,EAAE,OAAO,EAAE,MAAM,CAAC,CAAC;IAK5D,CAAC;IAHU,iCAAO,GAAd;QACI,OAAO,EAAE,CAAC,IAAI,CAAC,QAAQ,CAAC,CAAC;IAC7B,CAAC;IACL,sBAAC;AAAD,CAAC,AAND,IAMC;AAED,eAAe,eAAe,CAAC"}
