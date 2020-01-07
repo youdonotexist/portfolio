@@ -11,6 +11,8 @@ import Rubiq2 from "../assets/games/rubiq/2.jpg";
 import Rubiq3 from "../assets/games/rubiq/3.jpg";
 import Rubiq4 from "../assets/games/rubiq/4.jpg";
 import Rubiq5 from "../assets/games/rubiq/5.jpg";
+import Tictactics1 from "../assets/games/tictactics/tictactics.jpg";
+import Kidnap1 from "../assets/games/kidnap/kidnapcommander.jpg";
 
 export interface GameModel {
     readonly title: string;
@@ -86,10 +88,34 @@ export class GameViewModel {
 
         };
 
+        const kidnap: GameModel = {
+            date: 20120410,
+            images: [
+               Kidnap1
+            ],
+            readme: 'https://github.com/youdonotexist/KidnapCommander/blob/master/README.md',
+            source: 'https://github.com/youdonotexist/KidnapCommander',
+            title: "Kidnap Commander",
+
+        };
+
+        const tictactics: GameModel = {
+            date: 20120410,
+            images: [
+                Tictactics1
+            ],
+            readme: 'https://github.com/youdonotexist/TicTacApocolypse/blob/master/README.md',
+            source: 'https://github.com/youdonotexist/TicTacApocolypse',
+            title: "Tic Tactics",
+
+        };
+
         this.games.noman = noman;
         this.games.voodoll = voodoll;
         this.games.alone = alone;
         this.games.rubiq = rubiq;
+        this.games.kidnap = kidnap;
+        this.games.tictactics = tictactics;
     }
 
     public getData(id): Observable<GameModel> {

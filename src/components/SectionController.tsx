@@ -1,5 +1,5 @@
 import React from "react";
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch, SwitchProps} from "react-router-dom";
 import {GamesSection} from "./sections/GamesSection";
 import {AboutSection} from "./sections/AboutSection";
 import {WorkSection} from "./sections/WorkSection";
@@ -8,16 +8,17 @@ import {GameComponent} from "./games/GameComponent";
 import {NavigationComponent} from "./NavigationComponent";
 import Location from "react-router";
 
+type ModalLocation = { state: { modal: boolean } } & Location;
 
 interface SectionControllerProps {
-    location: { context: { modal: boolean } } & Location;
+    location: ModalLocation;
     modal?: boolean;
-    context: { modal: boolean };
+    state: { modal: boolean };
 }
 
 interface SectionControllerState {
-    location: { context: { modal: boolean } } & Location;
-    previousLocation: { context: { modal: boolean } } & Location;
+    location: ModalLocation;
+    previousLocation: ModalLocation;
     modal?: boolean;
 }
 
@@ -31,8 +32,8 @@ export class SectionController extends React.Component<SectionControllerProps, S
     public render() {
         const props: SectionControllerProps = this.props;
         const isModal = (
-            props.location.context &&
-            props.location.context.modal); // not initial render
+            props.location.state &&
+            props.location.state.modal); // not initial render
 
         // location={isModal ? this.state.previousLocation : location}
         return (
@@ -41,7 +42,7 @@ export class SectionController extends React.Component<SectionControllerProps, S
                 <Switch>
                     <Route exact path='/' component={AboutSection}/>
                     <Route path='/games' component={GamesSection}/>
-                    <Route path='/game/:game_id' component={GameComponent}/>
+                    <Route path='/game/:game_id' component={isModal ? GamesSection : GameComponent}/>
                     <Route path='/work' component={WorkSection}/>
                     <Route path='/about' component={AboutSection}/>
                 </Switch>
@@ -53,7 +54,7 @@ export class SectionController extends React.Component<SectionControllerProps, S
     public componentWillUpdate(nextProps) {
         // set previousLocation if props.location is not modal
         const notPop: boolean = nextProps.history.action !== "POP";
-        const notModal: boolean = (!this.props.location.context || !this.props.location.context.modal);
+        const notModal: boolean = (!this.props.location.state || !this.props.location.state.modal);
         if (notPop && notModal) {
             this.state.previousLocation = this.props.location;
         }

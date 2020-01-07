@@ -1,15 +1,6 @@
 import {Observable, of} from 'rxjs';
 
-import NoManImage from "../assets/noman.jpg";
-import UnfortunateImage from "../assets/unfortunate.png";
-import RubiqImage from "../assets/rubiq.jpg";
-import MothershipImage from "../assets/basic_boxart.png";
-import TictacticsImage from "../assets/tictactics.jpg";
-import KidnapCommandoImage from "../assets/kidnapcommander.jpg";
-import VooDollImage from "../assets/games/voodoll/1.png";
-
 export interface ProjectModel {
-    image: any;
     title: string;
     id: string;
     released: boolean;
@@ -26,7 +17,6 @@ export class GamesViewModel {
             {
                 date: 20100401,
                 id: "noman",
-                image: NoManImage,
                 readme: 'https://github.com/youdonotexist/no-man/blob/master/README.md',
                 released: false,
                 source: 'https://github.com/youdonotexist/no-man',
@@ -35,7 +25,6 @@ export class GamesViewModel {
             {
                 date: 20111215,
                 id: "alone",
-                image: UnfortunateImage,
                 readme: 'https://github.com/youdonotexist/Alone/blob/master/README.md',
                 released: false,
                 source: 'https://github.com/youdonotexist/Alone',
@@ -44,7 +33,6 @@ export class GamesViewModel {
             {
                 date: 20120410,
                 id: "rubiq",
-                image: RubiqImage,
                 readme: 'https://github.com/youdonotexist/RubiqsGarden/blob/master/README.md',
                 released: false,
                 source: 'https://github.com/youdonotexist/RubiqsGarden',
@@ -53,7 +41,6 @@ export class GamesViewModel {
             {
                 date: 0,
                 id: 'mothership',
-                image: MothershipImage,
                 readme: '',
                 released: true,
                 source: '',
@@ -62,7 +49,6 @@ export class GamesViewModel {
             {
                 date: 0,
                 id: 'tictactics',
-                image: TictacticsImage,
                 readme: '',
                 released: false,
                 source: '',
@@ -71,7 +57,6 @@ export class GamesViewModel {
             {
                 date: 0,
                 id: 'kidnap',
-                image: KidnapCommandoImage,
                 readme: '',
                 released: false,
                 source: '',
@@ -80,7 +65,6 @@ export class GamesViewModel {
             {
                 date: 20120110,
                 id: 'voodoll',
-                image: VooDollImage,
                 readme: 'https://github.com/youdonotexist/VooDoll/blob/master/README.md',
                 released: false,
                 source: 'https://github.com/youdonotexist/VooDoll',

@@ -26,7 +26,6 @@ export class GameComponent extends React.Component<GameProps & RouteChildrenProp
 
     private viewModel: GameViewModel;
     private carouselRef: React.RefObject<Carousel> = React.createRef();
-    private loaded: boolean = false;
 
     constructor(props) {
         super(props);
@@ -42,12 +41,6 @@ export class GameComponent extends React.Component<GameProps & RouteChildrenProp
         const stream = this.viewModel.getData(id);
 
         const observer: PartialObserver<GameModel> = {
-            complete: () => {
-                this.loaded = true;
-            },
-            error: err => {
-                this.setState(null)
-            },
             next: (game: GameModel) => {
                 this.setState({game})
             }
@@ -88,8 +81,9 @@ export class GameComponent extends React.Component<GameProps & RouteChildrenProp
             return <Carousel className='Game-Carousel' ref={this.carouselRef} heightMode='max'
                              withoutControls={isMobile}>
                 {game.images.map((image, index) => {
-                    return <img className={"WorkImage"} src={image} key={index} onLoad={this.handleLoadImage.bind(this)} alt={"game shot"}/>
-                     })}
+                    return <img className={"WorkImage"} src={image} key={index} onLoad={this.handleLoadImage.bind(this)}
+                                alt={"game shot"}/>
+                })}
             </Carousel>
         } else {
             return <div/>;

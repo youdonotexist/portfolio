@@ -41,7 +41,7 @@ export class StuffGrid extends Component<StuffGridProps, StuffGridState> {
 		return (
 			<div className="Grid">
 				{this.state.projects.map((item, index) => {
-					return <ProjectGridItem key={index} image={item.image} title={item.title} readme={item.readme} source={item.source} id={item.id}/>
+					return <ProjectGridItem key={index} title={item.title} readme={item.readme} source={item.source} id={item.id}/>
 				})}
 			</div>
 		);

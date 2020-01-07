@@ -1,5 +1,6 @@
 import React from 'react';
 import {AboutViewModel, ContactMethodModel} from "../../viewmodel/AboutViewModel";
+import {GitHistoryComponent} from "../about/GitHistoryComponent";
 
 interface AboutSectionState {
 	socialMediaItems: ContactMethodModel[]

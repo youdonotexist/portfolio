@@ -4,7 +4,6 @@ import {Link, LinkProps} from "react-router-dom";
 interface ProjectGridItemProps {
 	title: string;
 	id: string;
-	image: string;
 	readme: string;
 	source: string;
 }
