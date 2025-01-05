@@ -1,5 +1,6 @@
-import React from 'react';
-import {Link, LinkProps} from "react-router-dom";
+import React from "react";
+import {Link} from "react-router-dom";
+import {To} from "react-router";
 
 interface ProjectGridItemProps {
 	title: string;
@@ -8,21 +9,20 @@ interface ProjectGridItemProps {
 	source: string;
 }
 
-export class ProjectGridItem extends React.Component<ProjectGridItemProps> {
+const ProjectGridItem: React.FC<ProjectGridItemProps> = ({ title, id }) => {
+	const to: To = {
+		pathname: `/game/${id}`
+	};
 
-	constructor(props) {
-		super(props);
+	return (
+		<Link
+			className="Grid-Item"
+			to={to}
+			state={{ modal: true }}
+		>
+			<div>{title}</div>
+		</Link>
+	);
+};
 
-		this.state = {};
-	}
-
-
-
-	public render() {
-		return (
-			<Link className="Grid-Item" to={{pathname: '/game/' + this.props.id, state: {modal: true}}}>
-				<div> {this.props.title} </div>
-			</Link>
-		)
-	}
-}
+export default ProjectGridItem;

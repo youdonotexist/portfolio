@@ -6,32 +6,32 @@
 body, html {
     font-family: Geosans-Light, serif;
     position:relative;
-    background-color: #ffffff;
+    #background-color: #ffffff;
     height: 100%;
 }
 
 .App {
-    background-color: #ffffff;
+    #background-color: #ffffff;
     height: 100%;
     min-height: 100%;
 }
 
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 768px) {
     .App-header {
         margin: 0 auto;
         margin-left: 150px;
-        padding-top: 100px;
+        padding-top: 170px;
         color: #808080;
         max-width: 600px;
     }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 768px) {
     .App-header {
         margin: 0 auto;
         margin-left: 70px;
         padding-top: 100px;
-        color: #808080;
+        color: #ffffff;
         max-width: 600px;
     }
 }
@@ -39,13 +39,13 @@ body, html {
 .App-title {
     text-align: left;
     font-size: 30px;
-    color:darkseagreen;
+    color: #ffa902;
 }
 
 .App-subtitle {
     text-align: left;
     font-size: 20px;
-    color: rgb(166, 166, 166);
+    color: #ffffff;
     padding-bottom: 10px;
 }
 
@@ -88,7 +88,7 @@ body, html {
     display: block;
     width: 100%;
     text-align: right;
-    color: #808080;
+    color: #ffffff;
 }
 
 .Header-logos-container {
@@ -107,7 +107,7 @@ body, html {
     filter: invert(100%);
 }
 
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 768px) {
     .Navigation-Container {
         display: inline;
         float: left;
@@ -116,7 +116,7 @@ body, html {
     }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 768px) {
     .Navigation-Container {
         display: inline;
         float: left;
@@ -130,17 +130,17 @@ body, html {
     font-size: large;
 }
 
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 768px) {
     .Section {
         height: 100vh;
-        color: #808080;
+        color: red;
         margin: 0 auto;
         padding-left: 150px;
         padding-right: 150px;
     }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 768px) {
     .Section {
         height: 100vh;
         color: #808080;
@@ -162,12 +162,13 @@ body, html {
     text-align: left;
     font-weight: bold;
     max-width: 245px;
+    color: #ffffff;
 }
 
 .GamesHeader {
     font-size: 17px;
     text-align: left;
-    color: #418641;
+    color: #ffa902;
     font-weight: bolder;
 }
 
@@ -182,7 +183,7 @@ body, html {
 }
 
 .Grid-Item {
-    color: #000;
+    color: #ffffff;
     align-self: start;
     justify-self: left;
     margin-top: 5px;
@@ -295,7 +296,7 @@ body, html {
 
 .Game {
     width: 50%;
-    color: #808080;
+    color: #ffffff;
     margin: auto;
     min-height: 300px;
 }
@@ -319,7 +320,6 @@ body, html {
 
 .WorkImage {
     filter: grayscale(50%);
-    width: 50px;
     padding: 2px;
     padding-top:5px;
     padding-bottom:5px;

@@ -4,32 +4,47 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/node": "^13.1.4",
-    "@types/react": "^16.9.17",
-    "@types/react-dom": "^16.9.4",
-    "ajv": "^6.10.2",
-    "npm-check-updates": "^4.0.1",
-    "nuka-carousel": "^4.6.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-device-detect": "^1.11.14",
-    "react-dom": "^16.12.0",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^3.3.0",
-    "rxjs": "^6.5.4",
-    "rxjs-compat": "^6.5.4",
+    "@pixi/react": "^7.1.2",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "ajv": "^8.17.1",
+    "npm-check-updates": "^17.1.13",
+    "nuka-carousel": "^8.1.1",
+    "pixi.js": "^8.6.6",
+    "prop-types": "^15.8.1",
+    "react": "^19.0.0",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.1.1",
+    "react-router-dom": "^7.1.1",
+    "react-scripts": "^5.0.1",
+    "rxjs": "^7.8.1",
+    "rxjs-compat": "^6.6.7",
     "tsc": "^1.20150623.0"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "@types/prop-types": "^15.7.3",
-    "@types/react-router": "^4.4.5",
-    "@types/react-router-dom": "^4.3.5"
+    "@types/prop-types": "^15.7.14",
+    "@types/react-router": "^5.1.20",
+    "@types/react-router-dom": "^5.3.3",
+    "fast-glob": "^3.3.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

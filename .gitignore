@@ -3,6 +3,7 @@
 
 # node
 ./node_modules/.cache/**
+node_modules/
 
 # User-specific stuff
 .idea/**/workspace.xml

@@ -10,7 +10,7 @@ interface WorkSectionState {
 
 export class WorkSection extends React.Component<{}, WorkSectionState> {
 	private viewModel: JobsViewModel;
-	constructor(props) {
+	constructor(props: {}) {
 		super(props);
 
 		this.viewModel = new JobsViewModel();

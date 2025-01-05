@@ -13,17 +13,22 @@ import Rubiq4 from "../assets/games/rubiq/4.jpg";
 import Rubiq5 from "../assets/games/rubiq/5.jpg";
 import Tictactics1 from "../assets/games/tictactics/tictactics.jpg";
 import Kidnap1 from "../assets/games/kidnap/kidnapcommander.jpg";
+import Mothership1 from "../assets/games/mothership/upgradeui.gif";
+import Mothership2 from "../assets/games/mothership/levels.gif";
 
 export interface GameModel {
     readonly title: string;
     readonly date: number;
     readonly readme: string;
     readonly source: string;
+    readonly video: string;
     readonly images: string[];
 }
 
 export {
     NoManImage1, NoManImage2,
+    Mothership1,
+    Mothership2,
     Alone1,
     Alone2,
     Alone3,
@@ -38,19 +43,29 @@ export {
 export class GameViewModel {
 	public static emptyGame(): GameModel {
 		return {
-			date: 0, images: [], readme: "", source: "", title: ""
+			date: 0, images: [], readme: "", source: "", title: "", video: ""
 		}
 	}
 
     private games: Record<string, GameModel> = {};
 
     constructor() {
+        const mothership: GameModel = {
+            date: 20100401,
+            images: [Mothership1, Mothership2],
+            video: "PLO-cM61x0SH3FxQSP198niWPcCxVSUiOj",
+            readme: 'https://github.com/youdonotexist/MothershipFinal',
+            source: 'https://github.com/youdonotexist/MothershipFinal',
+            title: "Mothership: The Sequel",
+        };
+
         const noman: GameModel = {
             date: 20100401,
             images: [NoManImage1, NoManImage2],
             readme: 'https://github.com/youdonotexist/no-man/blob/master/README.md',
             source: 'https://github.com/youdonotexist/no-man',
             title: "No^Man",
+            video: ""
         };
 
         const voodoll: GameModel = {
@@ -60,7 +75,8 @@ export class GameViewModel {
             ],
             readme: 'https://github.com/youdonotexist/VooDoll/blob/master/README.md',
             source: 'https://github.com/youdonotexist/VooDoll',
-            title: 'Voodoll'
+            title: 'Voodoll',
+            video: ""
         };
 
         const alone: GameModel = {
@@ -70,7 +86,8 @@ export class GameViewModel {
             ],
             readme: 'https://github.com/youdonotexist/Alone/blob/master/README.md',
             source: 'https://github.com/youdonotexist/Alone',
-            title: 'The Unfortunate State of Being Alone'
+            title: 'The Unfortunate State of Being Alone',
+            video: ""
         };
 
         const rubiq: GameModel = {
@@ -85,7 +102,7 @@ export class GameViewModel {
             readme: 'https://github.com/youdonotexist/RubiqsGarden/blob/master/README.md',
             source: 'https://github.com/youdonotexist/RubiqsGarden',
             title: "Rubiq's Garden",
-
+            video: ""
         };
 
         const kidnap: GameModel = {
@@ -96,7 +113,7 @@ export class GameViewModel {
             readme: 'https://github.com/youdonotexist/KidnapCommander/blob/master/README.md',
             source: 'https://github.com/youdonotexist/KidnapCommander',
             title: "Kidnap Commander",
-
+            video: ""
         };
 
         const tictactics: GameModel = {
@@ -107,7 +124,7 @@ export class GameViewModel {
             readme: 'https://github.com/youdonotexist/TicTacApocolypse/blob/master/README.md',
             source: 'https://github.com/youdonotexist/TicTacApocolypse',
             title: "Tic Tactics",
-
+            video: ""
         };
 
         this.games.noman = noman;
@@ -116,9 +133,10 @@ export class GameViewModel {
         this.games.rubiq = rubiq;
         this.games.kidnap = kidnap;
         this.games.tictactics = tictactics;
+        this.games.mothership = mothership;
     }
 
-    public getData(id): Observable<GameModel> {
+    public getData(id: string): Observable<GameModel> {
         if (this.games[id]) {
             return of(this.games[id]);
         }

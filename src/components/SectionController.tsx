@@ -1,62 +1,45 @@
-import React from "react";
-import {Route, Switch, SwitchProps} from "react-router-dom";
-import {GamesSection} from "./sections/GamesSection";
-import {AboutSection} from "./sections/AboutSection";
-import {WorkSection} from "./sections/WorkSection";
-import {GameModal} from "./games/GameModal";
-import {GameComponent} from "./games/GameComponent";
-import {NavigationComponent} from "./NavigationComponent";
-import Location from "react-router";
+import React, { useEffect, useState } from "react";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { GamesSection } from "./sections/GamesSection";
+import { AboutSection } from "./sections/AboutSection";
+import { WorkSection } from "./sections/WorkSection";
+import { NavigationComponent } from "./NavigationComponent";
+import GameComponent from "./games/GameComponent";
+import GameModal from "./games/GameModal";
 
-type ModalLocation = { state: { modal: boolean } } & Location;
+const SectionController: React.FC = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
 
-interface SectionControllerProps {
-    location: ModalLocation;
-    modal?: boolean;
-    state: { modal: boolean };
-}
+    // State to track the current and previous locations
+    const [previousLocation, setPreviousLocation] = useState(location);
+    const isModal = location.state?.modal || false;
 
-interface SectionControllerState {
-    location: ModalLocation;
-    previousLocation: ModalLocation;
-    modal?: boolean;
-}
-
-export class SectionController extends React.Component<SectionControllerProps, SectionControllerState> {
-    public state: SectionControllerState = {
-        location: this.props.location,
-        modal: this.props.modal,
-        previousLocation: this.props.location
-    };
-
-    public render() {
-        const props: SectionControllerProps = this.props;
-        const isModal = (
-            props.location.state &&
-            props.location.state.modal); // not initial render
-
-        // location={isModal ? this.state.previousLocation : location}
-        return (
-            <div className={'Main'}>
-                <NavigationComponent/>
-                <Switch>
-                    <Route exact path='/' component={AboutSection}/>
-                    <Route path='/games' component={GamesSection}/>
-                    <Route path='/game/:game_id' component={isModal ? GamesSection : GameComponent}/>
-                    <Route path='/work' component={WorkSection}/>
-                    <Route path='/about' component={AboutSection}/>
-                </Switch>
-                {isModal ? <Route path="/game/:game_id" component={GameModal}/> : null}
-            </div>
-        );
-    }
-
-    public componentWillUpdate(nextProps) {
-        // set previousLocation if props.location is not modal
-        const notPop: boolean = nextProps.history.action !== "POP";
-        const notModal: boolean = (!this.props.location.state || !this.props.location.state.modal);
-        if (notPop && notModal) {
-            this.state.previousLocation = this.props.location;
+    // Update the previous location if not in a modal
+    useEffect(() => {
+        if (!isModal) {
+            setPreviousLocation(location);
         }
-    }
-}
+    }, [isModal]);
+
+    return (
+        <div className="Main">
+            <NavigationComponent />
+            <Routes location={isModal ? previousLocation : location}>
+                <Route path="/" element={<AboutSection />} />
+                <Route path="/games" element={<GamesSection />} />
+                <Route
+                    path="/game/:game_id"
+                    element={
+                        isModal ? <GamesSection /> : <GameComponent isModal={isModal} />
+                    }
+                />
+                <Route path="/work" element={<WorkSection />} />
+                <Route path="/about" element={<AboutSection />} />
+            </Routes>
+            {isModal && <GameModal />}
+        </div>
+    );
+};
+
+export default SectionController;

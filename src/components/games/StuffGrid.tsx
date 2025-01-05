@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {ProjectGridItem} from "./ProjectGridItem";
 import {GamesViewModel, ProjectModel} from "../../viewmodel/GamesViewModel";
+import ProjectGridItem from "./ProjectGridItem";
 
 interface StuffGridState {
 	projects: ProjectModel[]
@@ -13,7 +13,7 @@ interface StuffGridProps {
 export class StuffGrid extends Component<StuffGridProps, StuffGridState> {
 	private viewModel: GamesViewModel;
 
-	constructor(props) {
+	constructor(props: StuffGridProps) {
 		super(props);
 
 		this.viewModel = new GamesViewModel();

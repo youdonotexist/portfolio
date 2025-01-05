@@ -11,7 +11,7 @@ interface GitHistoryState {
 }
 
 export class GitHistoryComponent extends Component<{}, GitHistoryState> {
-    constructor(props) {
+    constructor(props: {}) {
         super(props);
 
         this.state = {

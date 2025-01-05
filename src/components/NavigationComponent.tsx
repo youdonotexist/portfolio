@@ -9,7 +9,7 @@ interface NavigationState {
 export class NavigationComponent extends Component<{}, NavigationState> {
     private viewModel: HeaderViewModel;
 
-    constructor(props) {
+    constructor(props: {}) {
         super(props);
 
         this.viewModel = new HeaderViewModel();

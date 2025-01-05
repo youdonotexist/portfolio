@@ -8,7 +8,7 @@ interface AboutSectionState {
 
 export class AboutSection extends React.Component<{}, AboutSectionState> {
 	private viewModel: AboutViewModel;
-	constructor(props) {
+	constructor(props: {}) {
 		super(props);
 
 		this.viewModel = new AboutViewModel();

@@ -3,7 +3,7 @@ import {Observable, of} from 'rxjs';
 import ItchIcon from "../assets/itchio.png";
 import TwitterIcon from '../assets/twitter.png';
 import GithubIcon from "../assets/github.png";
-import LinkedInIcon from "../assets/linkedin.svg";
+import LinkedInIcon from "../assets/linkedin.png";
 import BlogspotIcon from "../assets/blogspot.png";
 import EmailIcon from "../assets/email.png";
 
