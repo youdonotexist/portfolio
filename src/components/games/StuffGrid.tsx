@@ -34,6 +34,11 @@ export class StuffGrid extends Component<StuffGridProps, StuffGridState> {
 				this.setState({projects: games});
 			})
 		}
+		else if(this.props.data ==='unreleased') {
+			this.viewModel.getUnreleasedGames().subscribe((games) => {
+				this.setState({projects: games});
+			})
+		}
 
 	}
 

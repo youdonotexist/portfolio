@@ -10,9 +10,14 @@ export class GamesSection extends React.Component {
 					<StuffGrid data="released"/>
 				</div>
 				<div>
-					<div className="GamesHeader">Prototypes</div>
+					<div className="GamesHeader">Unreleased</div>
+					<StuffGrid data="unreleased"/>
+				</div>
+				<div>
+					<div className="GamesHeader">Game Jams</div>
 					<StuffGrid data="jam"/>
 				</div>
+
 			</div>
 		);
 	}

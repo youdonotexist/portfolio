@@ -43,7 +43,6 @@ const App: React.FC = () => {
 
 	const app = new Application();
 
-	let loadedPixi = false;
 
 	const addClouds = async (container: Container, width: number) => {
 		let cloudAssets = [
@@ -54,10 +53,10 @@ const App: React.FC = () => {
 			await Assets.load(cloud6),
 			await Assets.load(cloud7),
 			await Assets.load(cloud8)];
-		let cloutCount =  10;
+		let cloutCount =  20;
 		let clouds: Sprite[] = [];
 
-		for(var i = 0; i < cloutCount; i++) {
+		for(let i = 0; i < cloutCount; i++) {
 			const cloudRand = Math.floor(Math.random() * cloudAssets.length);
 
 			const texture = cloudAssets[cloudRand];
@@ -74,8 +73,9 @@ const App: React.FC = () => {
 		let ticker = Ticker.shared;
 		ticker.add(function (time) {
 			for (let i = 0; i < cloutCount; i++) {
-				clouds[i].x += .1;
+				clouds[i].x += time.deltaTime * 0.5;
 				if (clouds[i].x > width) {
+					console.log(width)
 					clouds[i].x = -clouds[i].width;
 				}
 			}
@@ -105,8 +105,6 @@ const App: React.FC = () => {
 			for (const entry of entries) {
 				const { width, height } = entry.contentRect;
 				app.stage.removeChildren()
-				//if (pixiInitialied)
-				//	pixiRef.current?.removeChild(app.canvas)
 				await init(width, height)
 			}
 		});
@@ -157,6 +155,7 @@ const App: React.FC = () => {
 			.catch(console.error);
 
 		return () => {
+			app.stage.removeChildren();
 			resizeObserver.disconnect();
 		};
 

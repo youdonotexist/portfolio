@@ -8,6 +8,13 @@ interface YouTubeEmbedProps {
 
 const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, width = '560', height = '315' }) => {
     //Special thanks to https://jameshfisher.com/2017/08/30/how-do-i-make-a-full-width-iframe/
+    let embedUrl;
+    if (videoId.startsWith("PLO-")) {
+        embedUrl = `https://www.youtube.com/embed/videoseries?si=0E2HRsbGj5pREd0r&list=${videoId}`;
+    }
+    else if (videoId.length > 0) {
+        embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    }
     return (
         <div
             style={{
@@ -25,7 +32,7 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, width = '560', hei
             }}>
 
                 <iframe
-                    src={`https://www.youtube.com/embed/videoseries?si=0E2HRsbGj5pREd0r&list=${videoId}`}
+                    src={embedUrl}
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     width={width}

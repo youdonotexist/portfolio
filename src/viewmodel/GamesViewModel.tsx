@@ -4,6 +4,7 @@ export interface ProjectModel {
     title: string;
     id: string;
     released: boolean;
+    gameJam: boolean;
     date: number;
     readme: string;
     source: string;
@@ -15,10 +16,20 @@ export class GamesViewModel {
     constructor() {
         this.projects = [
             {
+                date: 20090301,
+                id: "seeker",
+                readme: "",
+                released: false,
+                gameJam: false,
+                source: 'https://github.com/youdonotexist/seeker-game',
+                title: "The Seeker"
+            },
+            {
                 date: 20100401,
                 id: "noman",
                 readme: 'https://github.com/youdonotexist/no-man/blob/master/README.md',
                 released: false,
+                gameJam: true,
                 source: 'https://github.com/youdonotexist/no-man',
                 title: "No^Man"
             },
@@ -27,6 +38,7 @@ export class GamesViewModel {
                 id: "alone",
                 readme: 'https://github.com/youdonotexist/Alone/blob/master/README.md',
                 released: false,
+                gameJam: true,
                 source: 'https://github.com/youdonotexist/Alone',
                 title: "The Unfortunate State of Being Alone",
             },
@@ -35,6 +47,7 @@ export class GamesViewModel {
                 id: "rubiq",
                 readme: 'https://github.com/youdonotexist/RubiqsGarden/blob/master/README.md',
                 released: false,
+                gameJam: true,
                 source: 'https://github.com/youdonotexist/RubiqsGarden',
                 title: "Rubiq's Garden"
             },
@@ -43,6 +56,7 @@ export class GamesViewModel {
                 id: 'mothership',
                 readme: '',
                 released: true,
+                gameJam: false,
                 source: '',
                 title: "Mothership: The Sequel",
             },
@@ -51,6 +65,7 @@ export class GamesViewModel {
                 id: 'tictactics',
                 readme: '',
                 released: false,
+                gameJam: true,
                 source: '',
                 title: "Tic Tactics",
             },
@@ -59,6 +74,7 @@ export class GamesViewModel {
                 id: 'kidnap',
                 readme: '',
                 released: false,
+                gameJam: true,
                 source: '',
                 title: "Kidnap Commander",
             },
@@ -67,6 +83,7 @@ export class GamesViewModel {
                 id: 'voodoll',
                 readme: 'https://github.com/youdonotexist/VooDoll/blob/master/README.md',
                 released: false,
+                gameJam: true,
                 source: 'https://github.com/youdonotexist/VooDoll',
                 title: "Voodoll",
             }
@@ -76,7 +93,7 @@ export class GamesViewModel {
 
     public getJamGames(): Observable<ProjectModel[]> {
         return of(this.projects
-            .filter(project => !project.released)
+            .filter(project => project.gameJam)
             .sort((a, b) => {
                 return b.date - a.date
             }));
@@ -85,6 +102,14 @@ export class GamesViewModel {
     public getReleasedGames(): Observable<ProjectModel[]> {
         return of(this.projects
             .filter(project => project.released)
+            .sort((a, b) => {
+                return b.date - a.date
+            }));
+    }
+
+    public getUnreleasedGames(): Observable<ProjectModel[]> {
+        return of(this.projects
+            .filter(project => !project.released && !project.gameJam)
             .sort((a, b) => {
                 return b.date - a.date
             }));

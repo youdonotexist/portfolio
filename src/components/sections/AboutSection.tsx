@@ -33,11 +33,16 @@ export class AboutSection extends React.Component<{}, AboutSectionState> {
 					})}
 				</div>
 				<div className="About-txt">
-					Camren is a software engineer with over 10 years of experience building various things.
+					Camren is a technical leader & software engineer with over 15 years of experience building various things;
 
 					<br/><br/>
 
-					Such various things include technologies such as iOS, Android, Unity, and now, Web.
+					She has developed, or led development, on a wide variety of projects including games, mobile apps, webpages, and large enterprise applications;
+
+					<br/><br/>
+
+					You can usually found her staring longingly at the rain out her window, tinkering with a new technology, or running large multi-year projects to completion;
+
 
 					<br/><br/>
 				</div>

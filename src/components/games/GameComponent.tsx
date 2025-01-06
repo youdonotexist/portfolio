@@ -81,15 +81,38 @@ const GameComponent: React.FC<GameProps> = ({ isModal }) => {
         }//subscription?.unsubscribe(); // Clean up on unmount
     }, [game_id, viewModel]);
 
-    // Handle image load (no-op for now, but kept for parity with the original)
-    const handleLoadImage = useCallback(() => {
-        // Example logic for post-load adjustments can be added here
-    }, []);
 
+
+    function showImage(image: string, parentWidth: number, index: number) {
+
+        return (<div
+                style={{
+                    alignContent: "center",
+                    width: `${parentWidth}px`,
+                    position: "relative",
+                    backgroundColor: "black",
+                    clear: "both",
+                    overflow: "clip"
+                }}>
+
+                        <img
+                            key={index}
+                            width={parentWidth}
+                            style={{
+                                top: "0",
+                                left: "0",
+                                width: `${parentWidth}px`,
+                                height: "100%"
+                            }}
+                            src={image}
+                            alt="game shot"
+                        />
+        </div>);
+    }
 
     // Render carousel with images
     const showCarousel = (hasImages: string[]) => {
-        if (hasImages && hasImages.length > 0) {
+        //if (hasImages && hasImages.length > 0) {
             return (
                 <div ref={parentRef} style={{width: "100%", maxWidth: "600px", margin: "0 auto"}}>
                     <Carousel
@@ -100,35 +123,22 @@ const GameComponent: React.FC<GameProps> = ({ isModal }) => {
                         wrapMode={"wrap"}
                     >
                         {game.images.map((image, index) => (
-                            <div
-                                style={{
-                                    alignContent: "center",
-                                    width: `${parentWidth}px`,
-                                    position: "relative"
-                                }}>
-                            <img
-                                key={index}
-                                width={parentWidth}
-                                className="WorkImage"
-                                src={image}
-                                alt="game shot"
-                                onLoad={handleLoadImage}
-                            />
-                            </div>
+                            showImage(image, parentWidth, index)
                         ))}
-                        {showYoutube(game.video)}
+                        {game.videos.map((video, index) => (
+                            showYoutubeVideo(video)
+                        ))}
+                        {showYoutubeVideo(game.playlistId)}
                     </Carousel>
                 </div>
             );
-        } else {
-            return <div/>;
-        }
+        //}
     };
 
     // Render YouTube embed
-    const showYoutube = (videoUrl: string) => {
-        return videoUrl ? <YouTubeEmbed
-            videoId={videoUrl}
+    const showYoutubeVideo = (youtubeId: string) => {
+        return youtubeId ? <YouTubeEmbed
+            videoId={youtubeId}
             width={parentWidth.toString()}
             height={parentHeight.toString()} /> : "";
     };

@@ -21,7 +21,8 @@ export interface GameModel {
     readonly date: number;
     readonly readme: string;
     readonly source: string;
-    readonly video: string;
+    readonly videos: string[]
+    readonly playlistId: string;
     readonly images: string[];
 }
 
@@ -43,7 +44,7 @@ export {
 export class GameViewModel {
 	public static emptyGame(): GameModel {
 		return {
-			date: 0, images: [], readme: "", source: "", title: "", video: ""
+			date: 0, images: [], readme: "", source: "", title: "", playlistId: "", videos: []
 		}
 	}
 
@@ -53,11 +54,22 @@ export class GameViewModel {
         const mothership: GameModel = {
             date: 20100401,
             images: [Mothership1, Mothership2],
-            video: "PLO-cM61x0SH3FxQSP198niWPcCxVSUiOj",
+            playlistId: "PLO-cM61x0SH3FxQSP198niWPcCxVSUiOj",
             readme: 'https://github.com/youdonotexist/MothershipFinal',
             source: 'https://github.com/youdonotexist/MothershipFinal',
             title: "Mothership: The Sequel",
+            videos: []
         };
+
+        const seeker: GameModel = {
+            date: 20090301,
+            images: [],
+            readme: '',
+            source: 'https://github.com/youdonotexist/seeker-game',
+            title: "The Seeker",
+            playlistId: "PLO-cM61x0SH06B6tjlgBaKajljl_sLjnH",
+            videos: ['obtT9eOCMHM', 'QhbX6yiXeJg', 'IHR18tVv5U4', 'i7qcRTkQZ28', 'X7OaR5W5WGs', 'ayjhCZS1FM']
+        }
 
         const noman: GameModel = {
             date: 20100401,
@@ -65,7 +77,8 @@ export class GameViewModel {
             readme: 'https://github.com/youdonotexist/no-man/blob/master/README.md',
             source: 'https://github.com/youdonotexist/no-man',
             title: "No^Man",
-            video: ""
+            playlistId: "",
+            videos: []
         };
 
         const voodoll: GameModel = {
@@ -76,7 +89,8 @@ export class GameViewModel {
             readme: 'https://github.com/youdonotexist/VooDoll/blob/master/README.md',
             source: 'https://github.com/youdonotexist/VooDoll',
             title: 'Voodoll',
-            video: ""
+            playlistId: "",
+            videos: []
         };
 
         const alone: GameModel = {
@@ -87,7 +101,8 @@ export class GameViewModel {
             readme: 'https://github.com/youdonotexist/Alone/blob/master/README.md',
             source: 'https://github.com/youdonotexist/Alone',
             title: 'The Unfortunate State of Being Alone',
-            video: ""
+            playlistId: "",
+            videos: []
         };
 
         const rubiq: GameModel = {
@@ -102,7 +117,8 @@ export class GameViewModel {
             readme: 'https://github.com/youdonotexist/RubiqsGarden/blob/master/README.md',
             source: 'https://github.com/youdonotexist/RubiqsGarden',
             title: "Rubiq's Garden",
-            video: ""
+            playlistId: "",
+            videos: []
         };
 
         const kidnap: GameModel = {
@@ -113,7 +129,8 @@ export class GameViewModel {
             readme: 'https://github.com/youdonotexist/KidnapCommander/blob/master/README.md',
             source: 'https://github.com/youdonotexist/KidnapCommander',
             title: "Kidnap Commander",
-            video: ""
+            playlistId: "",
+            videos: []
         };
 
         const tictactics: GameModel = {
@@ -124,7 +141,8 @@ export class GameViewModel {
             readme: 'https://github.com/youdonotexist/TicTacApocolypse/blob/master/README.md',
             source: 'https://github.com/youdonotexist/TicTacApocolypse',
             title: "Tic Tactics",
-            video: ""
+            playlistId: "",
+            videos: []
         };
 
         this.games.noman = noman;
@@ -134,6 +152,7 @@ export class GameViewModel {
         this.games.kidnap = kidnap;
         this.games.tictactics = tictactics;
         this.games.mothership = mothership;
+        this.games.seeker = seeker;
     }
 
     public getData(id: string): Observable<GameModel> {
