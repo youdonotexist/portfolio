@@ -34,11 +34,14 @@ import sky3 from './assets/pixel/nightsky/bg02.png';
 import sky4 from './assets/pixel/nightsky/bg03.png';
 import sky5 from './assets/pixel/nightsky/bg04.png';
 import sky6 from './assets/pixel/nightsky/bg05.png';
+import {bool} from "prop-types";
 
 const App: React.FC = () => {
 
 	const pixiRef = useRef<HTMLDivElement | null>(null);
 	const appRef = useRef<Application | null>(null);
+
+	const app = new Application();
 
 	let loadedPixi = false;
 
@@ -92,79 +95,70 @@ const App: React.FC = () => {
 		return new TilingSprite(tilingSpriteOptions);
 	};
 
+	let pixiInitialied = false;
+
 	useEffect(() => {
 		// Initialize PixiJS application
 		// Create a new application
-		const app = new Application();
-		appRef.current = app;
 
-		const resizeObserver = new ResizeObserver((entries) => {
+		const resizeObserver = new ResizeObserver(async (entries) => {
 			for (const entry of entries) {
 				const { width, height } = entry.contentRect;
-				appRef.current?.renderer?.resize(width, height);
-				debugger;
+				app.stage.removeChildren()
+				//if (pixiInitialied)
+				//	pixiRef.current?.removeChild(app.canvas)
+				await init(width, height)
 			}
 		});
 
-		if (pixiRef.current) {
-			resizeObserver.observe(pixiRef.current);
-		}
-
-		const init = async () => {
-			await app.init({ background: '#aaaaaa', resizeTo: window });
-
+		const init = async (width: number, height:number) => {
+			if (!pixiInitialied) {
+				pixiInitialied = true;
+				await app.init({background: '#aaaaaa', resizeTo: window})
+			}
 			appRef.current = app;
-			debugger;
 
 			if (pixiRef.current) {
-				pixiRef.current.appendChild(app.canvas as HTMLCanvasElement);
+				pixiRef.current.appendChild(app.canvas);
+
+				resizeObserver.observe(pixiRef.current);
+
+				const bgContainer = new Container();
+				bgContainer.x = 0;
+				bgContainer.y = 0;
+				bgContainer.width = width;
+				bgContainer.height = height;
+
+				let sky = new Graphics()
+					.rect(0,0, width, height)
+					.fill(0x36567F);
+
+				let ground = new Graphics()
+					.rect(0,500, width, height - 500)
+					.fill(0x111B2F);
+
+				bgContainer.addChild(sky);
+				bgContainer.addChild(ground);
+
+				bgContainer.addChild(await addBackground(sky1, width));
+				bgContainer.addChild(await addBackground(sky2, width));
+				bgContainer.addChild(await addBackground(sky3, width));
+				bgContainer.addChild(await addBackground(sky4, width));
+				bgContainer.addChild(await addBackground(sky5, width));
+				bgContainer.addChild(await addBackground(sky6, width));
+
+				app.stage.addChild(bgContainer);
+
+				await addClouds(bgContainer, width.valueOf());
 			}
-
-			// Create and add a container to the stage
-
-			const bgContainer = new Container();
-			bgContainer.x = 0;
-			bgContainer.y = 0;
-			bgContainer.width = app.renderer.width;
-			bgContainer.height = app.renderer.height;
-
-			let sky = new Graphics()
-				.rect(0,0, app.renderer.width, app.renderer.height)
-				.fill(0x36567F);
-
-			let ground = new Graphics()
-				.rect(0,500, app.renderer.width, app.renderer.height - 500)
-				.fill(0x111B2F);
-
-			bgContainer.addChild(sky);
-			bgContainer.addChild(ground);
-
-			bgContainer.addChild(await addBackground(sky1, app.renderer.width));
-			bgContainer.addChild(await addBackground(sky2, app.renderer.width));
-			bgContainer.addChild(await addBackground(sky3, app.renderer.width));
-			bgContainer.addChild(await addBackground(sky4, app.renderer.width));
-			bgContainer.addChild(await addBackground(sky5, app.renderer.width));
-			bgContainer.addChild(await addBackground(sky6, app.renderer.width));
-
-
-
-			app.stage.addChild(bgContainer);
-
-
-			addClouds(bgContainer, app.renderer.width.valueOf());
-
 		}
 
-		if (!loadedPixi) {
-			loadedPixi = true;
-			init()
-				.catch(console.error);
-		}
+		init(window.screen.width, window.screen.height)
+			.catch(console.error);
 
-		//return () => {
-		//	resizeObserver.disconnect();
-		//	app.destroy(true, true);
-		//};
+		return () => {
+			resizeObserver.disconnect();
+		};
 
 	}, []);
 
