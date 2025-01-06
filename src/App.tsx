@@ -2,7 +2,7 @@ import './App.css';
 
 // Components
 import React, {useEffect, useRef} from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
 
 import {Header} from './components/Header';
 import SectionController from "./components/SectionController";
@@ -180,12 +180,12 @@ const App: React.FC = () => {
 			<Header/>
 
 			{/* React Router setup */}
-			<BrowserRouter>
+			<HashRouter>
 				<Routes>
 					{/* SectionController handles all other routes */}
 					<Route path="/*" element={<SectionController/>}/>
 				</Routes>
-			</BrowserRouter>
+			</HashRouter>
 		</div>
 	);
 };
