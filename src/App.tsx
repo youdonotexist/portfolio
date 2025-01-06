@@ -185,6 +185,11 @@ const App: React.FC = () => {
 					<Route path="/*" element={<SectionController/>}/>
 				</Routes>
 			</HashRouter>
+
+
+				<div className={"footer"}>
+					Special thanks to <a href={"https://edermunizz.itch.io/"}> edermunizz </a> for the pixel art
+				</div>
 		</div>
 	);
 };

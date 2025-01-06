@@ -62,20 +62,20 @@ body, html {
 
     color: white;
 
-    text-decoration-skip: edges;
+    text-decoration-skip-ink: auto;
     text-align: center;
+    text-decoration: none;
     height: 100%;
 }
 
 .Header-section-selected {
     font-size: 30px;
-    border: solid #808080;
-    border-width: 2px;
+    border: 2px solid #808080;
     border-radius: 10px;
     padding: 5px;
     background-color: rgb(166, 166, 166);
 
-    text-decoration-skip: edges;
+    text-decoration-skip-ink: auto;
     text-align: center;
 }
 
@@ -141,18 +141,15 @@ body, html {
 @media screen and (max-width: 768px) {
     .Section {
         color: #808080;
-        margin: 0 auto;
-        margin-left: 70px;
+        margin: 0 auto 0 70px;
         padding-right: 30px;
     }
 }
 
 .About-img {
     height: 200px;
-    margin: 0 auto;
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px auto;
 }
 
 .About-txt {
@@ -241,9 +238,7 @@ body, html {
 }
 
 .modal-close-top {
-    border: black;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid black;
     width:25px;
     height:25px;
     line-height: 23px;
@@ -259,9 +254,7 @@ body, html {
 }
 
 .modal-close-bottom {
-    border: black;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid black;
     text-align: center;
     width:100%;
     margin-top: 10px;
@@ -316,9 +309,21 @@ body, html {
 }
 
 .WorkImage {
-    filter: grayscale(50%);
-    padding: 2px;
-    padding-top:5px;
-    padding-bottom:5px;
+    width: 50px;
+    height: 50px;
+    padding: 5px 2px;
 }
 
+.footerContainer {
+    position: relative;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    color:white;
+    text-decoration-color: orange;
+}
+
+.footer a {
+    color:orange;
+}
