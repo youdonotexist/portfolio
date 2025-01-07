@@ -81,7 +81,6 @@ const GameComponent: React.FC<GameProps> = ({ isModal }) => {
                                 top: "0",
                                 left: "0",
                                 width: `${parentWidth}px`,
-
                             }}
                             src={image}
                             alt="game shot"

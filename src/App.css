@@ -1,3 +1,7 @@
+:root {
+    --highlight: #59a1ff;
+}
+
 @font-face {
     font-family: Geosans-Light;
     src: url("./assets/Geosans-Light.woff") format("woff");
@@ -39,7 +43,7 @@ body, html {
 .App-title {
     text-align: left;
     font-size: 30px;
-    color: #ffa902;
+    color: var(--highlight);
 }
 
 .App-subtitle {
@@ -131,7 +135,6 @@ body, html {
 
 @media screen and (min-width: 768px) {
     .Section {
-        color: red;
         margin: 0 auto;
         padding-left: 150px;
         padding-right: 150px;
@@ -162,7 +165,7 @@ body, html {
 .GamesHeader {
     font-size: 17px;
     text-align: left;
-    color: #ffa902;
+    color: var(--highlight);
     font-weight: bolder;
 }
 
@@ -321,9 +324,9 @@ body, html {
     position: absolute;
     bottom: 0;
     color:white;
-    text-decoration-color: orange;
+    text-decoration-color: #59A1FFFF
 }
 
 .footer a {
-    color:orange;
+    color:#59A1FFFF;
 }
