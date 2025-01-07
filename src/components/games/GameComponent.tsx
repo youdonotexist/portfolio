@@ -1,7 +1,6 @@
 import React, {useEffect, useState, useCallback, useRef} from "react";
 import { GameModel, GameViewModel } from "../../viewmodel/GameViewModel";
 import { useParams } from "react-router-dom";
-import { isMobile } from "react-device-detect";
 import {PartialObserver, Subscription} from "rxjs";
 import YouTubeEmbed from "./YouTube";
 
@@ -51,24 +50,6 @@ const GameComponent: React.FC<GameProps> = ({ isModal }) => {
 
         if (parentRef.current) {
             resizeObserver.observe(parentRef.current);
-
-            const children = parentRef.current.querySelector('#nuka-wrapper')?.children || [];
-            const offsets = Array.from(children).map(
-                (child) => (child as HTMLElement).offsetWidth,
-            );
-
-            const scrollWidth = parentRef.current.scrollWidth;
-            const visibleWidth = parentRef.current.offsetWidth;
-            const remainder = scrollWidth - visibleWidth;
-
-            //debugger;
-            // shift the scroll offsets by one to account for the first slide
-            //const scrollOffsets = arraySum([0, ...offsets.slice(0, -1)]);
-
-            // find the index of the scroll offset that is greater than
-            // the remainder of the full width and window width
-            //const pageCount =
-            //    scrollOffsets.findIndex((offset) => offset >= remainder) + 1;
         }
 
         if (!game.title) {
@@ -89,12 +70,10 @@ const GameComponent: React.FC<GameProps> = ({ isModal }) => {
                 style={{
                     alignContent: "center",
                     width: `${parentWidth}px`,
+                    height: "100%",
                     position: "relative",
                     backgroundColor: "black",
-                    clear: "both",
-                    overflow: "clip"
                 }}>
-
                         <img
                             key={index}
                             width={parentWidth}
@@ -102,7 +81,7 @@ const GameComponent: React.FC<GameProps> = ({ isModal }) => {
                                 top: "0",
                                 left: "0",
                                 width: `${parentWidth}px`,
-                                height: "100%"
+
                             }}
                             src={image}
                             alt="game shot"
