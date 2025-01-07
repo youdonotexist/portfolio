@@ -9,7 +9,7 @@ import SectionController from "./components/SectionController";
 import {
 	Application,
 	Assets,
-	Container,
+	Container, ContainerChild,
 	Graphics,
 	Point,
 	Sprite,
@@ -43,6 +43,13 @@ const App: React.FC = () => {
 
 	const app = new Application();
 
+	const addRain = () => {
+
+	}
+
+	function lerp(start: number, end:number, t:number) {
+		return start + (end - start) * t;
+	}
 
 	const addClouds = async (container: Container, width: number) => {
 		let cloudAssets = [
@@ -53,7 +60,9 @@ const App: React.FC = () => {
 			await Assets.load(cloud6),
 			await Assets.load(cloud7),
 			await Assets.load(cloud8)];
-		let cloutCount =  20;
+		const lowWidth = width < 768;
+		const lower = lowWidth ? 80 : 170;
+		let cloutCount =  lowWidth ? 10 : 20;
 		let clouds: Sprite[] = [];
 
 		for(let i = 0; i < cloutCount; i++) {
@@ -63,10 +72,11 @@ const App: React.FC = () => {
 
 			const cloud = new Sprite(texture);
 			clouds.push(cloud);
-
-			cloud.x = Math.floor(Math.random() * container.width) - 200;
-			cloud.y = Math.floor(Math.random() * 170);
+			cloud.x = Math.floor(lerp(0, width, Math.random())) - 100;
+			cloud.y = Math.floor(lerp(30, lower, Math.random()));
 			cloud.pivot.y = cloud.height;
+			cloud.pivot.x = 0;
+
 			container.addChild(cloud);
 		}
 
@@ -105,6 +115,7 @@ const App: React.FC = () => {
 			for (const entry of entries) {
 				const { width, height } = entry.contentRect;
 				app.stage.removeChildren()
+				Ticker.shared.destroy();
 				await init(width, height)
 			}
 		});
@@ -147,7 +158,7 @@ const App: React.FC = () => {
 
 				app.stage.addChild(bgContainer);
 
-				await addClouds(bgContainer, width.valueOf());
+				await addClouds(bgContainer, width);
 			}
 		}
 
@@ -156,6 +167,7 @@ const App: React.FC = () => {
 
 		return () => {
 			app.stage.removeChildren();
+			Ticker.shared.destroy();
 			resizeObserver.disconnect();
 		};
 
