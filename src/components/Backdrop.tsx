@@ -29,6 +29,7 @@ import midsky4 from '../assets/pixel/midsky/bg03.png';
 import midsky5 from '../assets/pixel/midsky/bg04.png';
 import midsky6 from '../assets/pixel/midsky/bg05.png';
 
+import {SkySet, SkySetConfig} from "../js/SkySet";
 import {
     Application,
     Assets,
@@ -36,7 +37,30 @@ import {
     Sprite,
     Ticker,
 } from "pixi.js";
-import {SkySet} from "../js/SkySet";
+
+const backdropConfig:SkySetConfig[] = [
+    {
+        name: 'night',
+        bg : [sky1, sky2, sky3, sky4, sky5, sky6],
+        skyColor: 0x36567F,
+        groundColor: 0x111B2F,
+        emphasisColor: 0xffa902
+    },
+    {
+        name: 'day',
+        bg: [daysky1, daysky2, daysky3, daysky4, daysky5, daysky6],
+        skyColor: 0xA2B9AC,
+        groundColor: 0x5E5C5F,
+        emphasisColor: 0x5e5c5f
+    },
+    {
+        name: 'mid',
+        bg: [midsky1, midsky2, midsky3, midsky4, midsky5, midsky6],
+        skyColor: 0xA4AFDF,
+        groundColor: 0x57539F,
+        emphasisColor: 0x57539f
+    }
+]
 
 const Backdrop: React.FC = () => {
     const canvasRef = useRef<HTMLDivElement>(null);
@@ -79,19 +103,11 @@ const Backdrop: React.FC = () => {
         bgContainer.height = height;
 
         const rand = timeOfDay()
-        const emphasisColor = [0xffa902, 0xf4e495, 0x57539f]
-        updateHightlight(emphasisColor[rand]);
+        const config = backdropConfig[rand];
 
-        const night = [sky1, sky2, sky3, sky4, sky5, sky6];
-        const day = [daysky1, daysky2, daysky3, daysky4, daysky5, daysky6];
-        const mid = [midsky1, midsky2, midsky3, midsky4, midsky5, midsky6];
-        const skies = [night, day, mid];
-        const skycolors = [0x36567F, 0xA2B9AC, 0xA4AFDF];
-        const groundcolors = [0x111B2F, 0x5E5C5F, 0x57539F];
-
-
-        const skySet = new SkySet(skies[rand], bgContainer, skycolors[rand], groundcolors[rand], width, height);
-        await skySet.draw();
+        updateHightlight(config.emphasisColor);
+        const skySet = new SkySet(bgContainer, config, width, height);
+        await skySet.build();
 
         await addClouds(bgContainer, width);
 
@@ -100,9 +116,9 @@ const Backdrop: React.FC = () => {
 
     const timeOfDay = () => {
         const currentHour = new Date().getHours()
-        if (currentHour >= 12 && currentHour <=17) return 2
-        else if (currentHour <= 18) return 0
-        else return 1
+        if (currentHour >= 12 && currentHour <=17) return 2 // afternoon
+        else if (currentHour >= 18 || currentHour <= 6) return 0 //night
+        else return 1 //morning/midday
     }
 
     const updateHightlight = (color: number) => {

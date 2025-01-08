@@ -1,5 +1,6 @@
 :root {
     --highlight: #59a1ff;
+    --text: #ffffff;
 }
 
 @font-face {
@@ -22,8 +23,7 @@ body, html {
 
 @media screen and (min-width: 768px) {
     .App-header {
-        margin: 0 auto;
-        margin-left: 150px;
+        margin: 0 auto 0 150px;
         padding-top: 170px;
         color: #808080;
         max-width: 600px;
@@ -32,8 +32,7 @@ body, html {
 
 @media screen and (max-width: 768px) {
     .App-header {
-        margin: 0 auto;
-        margin-left: 70px;
+        margin: 0 auto 0 70px;
         padding-top: 100px;
         color: #ffffff;
         max-width: 600px;
@@ -51,6 +50,7 @@ body, html {
     font-size: 20px;
     color: #ffffff;
     padding-bottom: 10px;
+    text-shadow: 0px 1px 2px rgb(0 0 0 / 80%);
 }
 
 .Header-Main {
@@ -70,6 +70,7 @@ body, html {
     text-align: center;
     text-decoration: none;
     height: 100%;
+    text-shadow: 0px 1px 2px rgb(0 0 0 / 80%);
 }
 
 .Header-section-selected {
@@ -108,7 +109,7 @@ body, html {
     width: 25px;
     margin-right: 4px;
     color: #808080;
-    filter: drop-shadow( 0px 0px 3px #000000);
+    filter: drop-shadow( 1px 1px 1px #55555555);
 }
 
 @media screen and (min-width: 768px) {
@@ -157,16 +158,17 @@ body, html {
 
 .About-txt {
     text-align: left;
-    font-weight: bold;
-    max-width: 245px;
-    color: #ffffff;
+    max-width: 400px;
+    color: white;
+    text-shadow: 0px 1px 2px rgb(0 0 0 / 80%);
 }
 
 .GamesHeader {
     font-size: 17px;
     text-align: left;
     color: var(--highlight);
-    font-weight: bolder;
+    font-kerning: none;
+    font-weight: bold;
 }
 
 .Grid {
@@ -186,6 +188,7 @@ body, html {
     margin-top: 5px;
     text-decoration: none;
     text-align: left;
+    text-shadow: 0px 1px 2px rgb(0 0 0 / 80%);
 }
 
 .Grid-Item > img {
@@ -324,9 +327,11 @@ body, html {
     position: absolute;
     bottom: 0;
     color:white;
-    text-decoration-color: #59A1FFFF
+    text-decoration-color: #59A1FFFF;
+    filter: drop-shadow( 3px 3px 3px #000);
 }
 
 .footer a {
     color:#59A1FFFF;
+    font-weight: bold;
 }

@@ -1,14 +1,20 @@
 import {
     Assets,
-    Color,
     Container,
     FillInput,
     Graphics,
     Point,
-    Texture,
     TilingSprite,
     TilingSpriteOptions
 } from "pixi.js";
+
+export interface SkySetConfig {
+    name: string;
+    bg : string[]
+    skyColor: number,
+    groundColor: number,
+    emphasisColor: number
+}
 
 export class SkySet {
     backdrops: string[] = []
@@ -18,16 +24,16 @@ export class SkySet {
     width: number;
     height: number;
 
-    constructor(bgTextures: string[], container: Container, skyColor:FillInput, groundColor:FillInput, width: number, height: number) {
+    constructor(container: Container, config:SkySetConfig, width: number, height: number) {
         this.parentContainer = container;
-        this.sky = skyColor;
-        this.ground = groundColor;
-        this.backdrops = bgTextures;
+        this.sky = config.skyColor;
+        this.ground = config.groundColor;
+        this.backdrops = config.bg;
         this.width = width;
         this.height = height;
     }
 
-    async draw() {
+    async build() {
         let sky = new Graphics()
             .rect(0,0, this.width, this.height)
             .fill(this.sky);
