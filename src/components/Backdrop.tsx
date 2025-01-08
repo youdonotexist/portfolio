@@ -32,7 +32,7 @@ import midsky6 from '../assets/pixel/midsky/bg05.png';
 import {SkySet, SkySetConfig} from "../js/SkySet";
 import {
     Application,
-    Assets,
+    Assets, Color, ColorSource,
     Container,
     Sprite,
     Ticker,
@@ -44,21 +44,24 @@ const backdropConfig:SkySetConfig[] = [
         bg : [sky1, sky2, sky3, sky4, sky5, sky6],
         skyColor: 0x36567F,
         groundColor: 0x111B2F,
-        emphasisColor: 0xffa902
+        emphasisColor: 0xffa902,
+        cloudTint: 0xc2d8e2
     },
     {
         name: 'day',
         bg: [daysky1, daysky2, daysky3, daysky4, daysky5, daysky6],
         skyColor: 0xA2B9AC,
         groundColor: 0x5E5C5F,
-        emphasisColor: 0x5e5c5f
+        emphasisColor: 0x5e5c5f,
+        cloudTint: 0xe0cccb
     },
     {
         name: 'mid',
         bg: [midsky1, midsky2, midsky3, midsky4, midsky5, midsky6],
         skyColor: 0xA4AFDF,
         groundColor: 0x57539F,
-        emphasisColor: 0x57539f
+        emphasisColor: 0x57539f,
+        cloudTint: 0xefe9f6
     }
 ]
 
@@ -109,7 +112,7 @@ const Backdrop: React.FC = () => {
         const skySet = new SkySet(bgContainer, config, width, height);
         await skySet.build();
 
-        await addClouds(bgContainer, width);
+        await addClouds(bgContainer, width, config.cloudTint);
 
         return bgContainer;
     };
@@ -145,7 +148,7 @@ const Backdrop: React.FC = () => {
         return start + (end - start) * t;
     }
 
-    const addClouds = async (container: Container, width: number) => {
+    const addClouds = async (container: Container, width: number, cloudColor: number) => {
         let cloudAssets = [
             await Assets.load(cloud1),
             await Assets.load(cloud2),
@@ -159,18 +162,21 @@ const Backdrop: React.FC = () => {
         let cloutCount =  lowWidth ? 10 : 20;
         let clouds: Sprite[] = [];
 
+        const color = new Color(cloudColor);
+
         for(let i = 0; i < cloutCount; i++) {
             const cloudRand = Math.floor(Math.random() * cloudAssets.length);
 
             const texture = cloudAssets[cloudRand];
-
             const cloud = new Sprite(texture);
+
             clouds.push(cloud);
             cloud.x = Math.floor(lerp(0, width, Math.random())) - 100;
             cloud.y = Math.floor(lerp(30, lower, Math.random()));
             cloud.pivot.y = cloud.height;
             cloud.pivot.x = 0;
 
+            cloud.tint = color;
             container.addChild(cloud);
         }
 

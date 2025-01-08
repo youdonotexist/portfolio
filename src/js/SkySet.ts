@@ -13,7 +13,8 @@ export interface SkySetConfig {
     bg : string[]
     skyColor: number,
     groundColor: number,
-    emphasisColor: number
+    emphasisColor: number,
+    cloudTint: number
 }
 
 export class SkySet {
@@ -23,6 +24,7 @@ export class SkySet {
     ground: FillInput;
     width: number;
     height: number;
+    cloudTint: number;
 
     constructor(container: Container, config:SkySetConfig, width: number, height: number) {
         this.parentContainer = container;
@@ -31,6 +33,7 @@ export class SkySet {
         this.backdrops = config.bg;
         this.width = width;
         this.height = height;
+        this.cloudTint = config.cloudTint;
     }
 
     async build() {
