@@ -308,16 +308,55 @@ body, html {
     margin: auto;
 }
 
-.CompanyRow {
-    text-align: start;
-    display:inline;
-    padding-left: 5px;
+.WorkCategory {
+    margin-bottom: 24px;
 }
 
-.WorkImage {
-    width: 50px;
-    height: 50px;
-    padding: 5px 2px;
+.WorkGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 12px;
+    padding: 8px 0;
+    max-width: 600px;
+}
+
+.WorkCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 8px 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.WorkCard:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+.WorkCard-imgWrap {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+}
+
+.WorkCard-img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+.WorkCard-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    text-shadow: 0px 1px 2px rgb(0 0 0 / 60%);
+    line-height: 1.2;
 }
 
 .footerContainer {
