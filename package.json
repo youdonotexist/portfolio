@@ -8,7 +8,7 @@
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
-    "ajv": "^8.17.1",
+    "ajv": "^8.18.0",
     "npm-check-updates": "^17.1.13",
     "nuka-carousel": "^8.1.1",
     "pixi.js": "^8.6.6",
